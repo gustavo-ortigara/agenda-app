@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.agenda.controller.ReportsController"
+            stylesheets="@../styles/styles.css">
+    
+    <top>
+        <VBox spacing="10" styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button text="← Voltar" onAction="#handleBack" 
+                       styleClass="secondary-button"/>
+                <Text text="Relatórios e Gráficos" styleClass="header-title"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane>
+            <Tab text="Contatos por Categoria">
+                <VBox spacing="15" alignment="CENTER">
+                    <PieChart fx:id="contactsChart" 
+                             styleClass="chart-container"/>
+                    <Button text="Atualizar Gráfico" onAction="#updateCharts" 
+                           styleClass="primary-button"/>
+                </VBox>
+            </Tab>
+            
+            <Tab text="Eventos por Mês">
+                <VBox spacing="15" alignment="CENTER">
+                    <BarChart fx:id="eventsChart" 
+                             styleClass="chart-container">
+                        <xAxis>
+                            <CategoryAxis label="Meses"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Quantidade"/>
+                        </yAxis>
+                    </BarChart>
+                    <Button text="Atualizar Gráfico" onAction="#updateCharts" 
+                           styleClass="primary-button"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

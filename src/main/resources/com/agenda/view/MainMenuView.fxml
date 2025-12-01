@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.agenda.controller.MainMenuController"
+            stylesheets="@../styles/styles.css">
+    
+    <top>
+        <VBox spacing="10" styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="Menu Principal" styleClass="header-title"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="30" alignment="CENTER">
+            <Text text="Selecione uma opção" styleClass="title-text"/>
+            
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Gerenciar Contatos" onAction="#handleContacts" 
+                       styleClass="menu-button"/>
+                <Button text="Gerenciar Eventos" onAction="#handleEvents" 
+                       styleClass="menu-button"/>
+                <Button text="Relatórios" onAction="#handleReports" 
+                       styleClass="menu-button"/>
+            </HBox>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" styleClass="footer">
+            <Button text="Sair" onAction="#handleLogout" 
+                   styleClass="secondary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

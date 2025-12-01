@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.agenda.controller.EventsController"
+            stylesheets="@../styles/styles.css">
+    
+    <top>
+        <VBox spacing="10" styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button text="← Voltar" onAction="#handleBack" 
+                       styleClass="secondary-button"/>
+                <Text text="Gerenciar Eventos" styleClass="header-title"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <VBox spacing="15" styleClass="form-container">
+                <Label text="Cadastrar/Editar Evento" styleClass="form-title"/>
+                
+                <TextField fx:id="titleField" promptText="Título" 
+                          styleClass="form-field"/>
+                <DatePicker fx:id="dateField" promptText="Data" 
+                           styleClass="form-field"/>
+                <TextField fx:id="locationField" promptText="Local" 
+                          styleClass="form-field"/>
+                <ComboBox fx:id="contactComboBox" promptText="Contato Relacionado" 
+                         styleClass="form-field"/>
+                <TextArea fx:id="descriptionField" promptText="Descrição" 
+                         styleClass="form-textarea" wrapText="true"/>
+                
+                <HBox spacing="10">
+                    <Button text="Salvar" onAction="#handleSaveEvent" 
+                           styleClass="primary-button"/>
+                    <Button text="Novo" onAction="#handleNewEvent" 
+                           styleClass="secondary-button"/>
+                    <Button text="Excluir" onAction="#handleDeleteEvent" 
+                           styleClass="danger-button"/>
+                </HBox>
+            </VBox>
+            
+            <VBox spacing="10">
+                <Label text="Lista de Eventos" styleClass="form-title"/>
+                <TableView fx:id="eventsTable" styleClass="data-table">
+                    <columns>
+                        <TableColumn text="Título" prefWidth="150">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="title"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Data" prefWidth="120">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Local" prefWidth="120">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="location"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Contato" prefWidth="120">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="relatedContact"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.agenda.controller.LoginController"
+            stylesheets="@../styles/styles.css">
+    
+    <VBox spacing="20" alignment="CENTER" AnchorPane.topAnchor="50.0" 
+          AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" 
+          AnchorPane.rightAnchor="50.0">
+        
+        <Text text="Agenda App" styleClass="title-text"/>
+        
+        <VBox spacing="15" alignment="CENTER" styleClass="login-form">
+            <Label text="Login" styleClass="form-title"/>
+            
+            <TextField fx:id="usernameField" promptText="Usuário" 
+                      styleClass="form-field"/>
+            
+            <PasswordField fx:id="passwordField" promptText="Senha" 
+                          styleClass="form-field"/>
+            
+            <Button text="Entrar" onAction="#handleLogin" 
+                   styleClass="primary-button"/>
+            
+            <Label fx:id="errorLabel" styleClass="error-label" 
+                   visible="false"/>
+        </VBox>
+    </VBox>
+</AnchorPane>

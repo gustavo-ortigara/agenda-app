@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.agenda.controller.ContactsController"
+            stylesheets="@../styles/styles.css">
+    
+    <top>
+        <VBox spacing="10" styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button text="← Voltar" onAction="#handleBack" 
+                       styleClass="secondary-button"/>
+                <Text text="Gerenciar Contatos" styleClass="header-title"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <VBox spacing="15" styleClass="form-container">
+                <Label text="Cadastrar/Editar Contato" styleClass="form-title"/>
+                
+                <TextField fx:id="nameField" promptText="Nome" 
+                          styleClass="form-field"/>
+                <TextField fx:id="phoneField" promptText="Telefone" 
+                          styleClass="form-field"/>
+                <TextField fx:id="emailField" promptText="Email" 
+                          styleClass="form-field"/>
+                <ComboBox fx:id="categoryComboBox" promptText="Categoria" 
+                         styleClass="form-field"/>
+                <TextArea fx:id="observationsField" promptText="Observações" 
+                         styleClass="form-textarea" wrapText="true"/>
+                
+                <HBox spacing="10">
+                    <Button text="Salvar" onAction="#handleSaveContact" 
+                           styleClass="primary-button"/>
+                    <Button text="Novo" onAction="#handleNewContact" 
+                           styleClass="secondary-button"/>
+                    <Button text="Excluir" onAction="#handleDeleteContact" 
+                           styleClass="danger-button"/>
+                </HBox>
+            </VBox>
+            
+            <VBox spacing="10">
+                <Label text="Lista de Contatos" styleClass="form-title"/>
+                <TableView fx:id="contactsTable" styleClass="data-table">
+                    <columns>
+                        <TableColumn text="Nome" prefWidth="150">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Telefone" prefWidth="120">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="phone"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Email" prefWidth="150">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="email"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Categoria" prefWidth="100">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="category"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
