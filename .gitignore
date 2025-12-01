@@ -1,0 +1,28 @@
+# Java build
+/target/
+/bin/
+/out/
+*.class
+
+# Maven/Gradle
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+.gradle
+/build/
+
+# IDEs
+*.iml
+/.idea/
+/.vscode/
+
+# OS / misc
+.DS_Store
+Thumbs.db
+*.log
+
+# OneDrive temp files
+~$*
+
+# Credentials (evite commitar arquivos .env, secrets)
+.env
